@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                         .getJSONObject(countArray)
                         .getString("week"))
 
-                    sevendayReport.append("$date  $week\n\n")
+                    sevendayReport.append(date.substring(0,4) + "年" + date.substring(4,6) + "月" + date.substring(6,8) + "日" + "  " + week + "\n\n")
                 }
             },
             Response.ErrorListener {
