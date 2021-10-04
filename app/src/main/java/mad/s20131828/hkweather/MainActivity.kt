@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Request for Current Weather Information
-    fun requestCurrentWeather (){
+    private fun requestCurrentWeather (){
         val currentDegree = findViewById<TextView>(R.id.currentDegree)
         val warnMessage = findViewById<TextView>(R.id.warnMessage)
         //Url link of HKO current weather API
@@ -47,13 +47,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Request for 7 days weather report
-    fun request7dayWeather (){
+    private fun request7dayWeather (){
         val sevendayReport = findViewById<TextView>(R.id.sevendayReport)
         val sevendayDegree = findViewById<TextView>(R.id.sevendayDegree)
         //url link of HKO 9 days weather API
         val url = "https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=tc"
         val queue = Volley.newRequestQueue(this)
-        val countArray = 0 //counting array start from 0
+        //val countArray = 0 //counting array start from 0
         //Date related request
         val sevendate: JsonObjectRequest = JsonObjectRequest(
             Request.Method.GET, url, null,
@@ -70,7 +70,7 @@ class MainActivity : AppCompatActivity() {
                         .getJSONObject(countArray)
                         .getString("week"))
 
-                    sevendayReport.append(date + "  " + week + "\n\n")
+                    sevendayReport.append("$date  $week\n\n")
                 }
             },
             Response.ErrorListener {
@@ -96,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                         .getJSONObject("forecastMintemp")
                         .getInt("value").toString())
 
-                    sevendayDegree.append(miniTemp + "°C - " + maxTemp + "°C" + "\n\n")
+                    sevendayDegree.append("$miniTemp°C - $maxTemp°C\n\n")
                 }
             },
             Response.ErrorListener {
@@ -106,6 +106,5 @@ class MainActivity : AppCompatActivity() {
         )
         queue.add(sevendate)
         queue.add(sevendegree)
-
     }
 }
