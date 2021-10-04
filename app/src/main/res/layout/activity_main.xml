@@ -6,6 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <ImageView
+        android:id="@+id/bgImage"
+        android:layout_width="476dp"
+        android:layout_height="816dp"
+        android:contentDescription="@string/background_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/bg"
+        tools:ignore="ImageContrastCheck" />
+
     <TextView
         android:id="@+id/currentDegree"
         android:layout_width="68dp"
@@ -41,6 +53,7 @@
         android:id="@+id/warnMessage"
         android:layout_width="315dp"
         android:layout_height="82dp"
+        android:textColor="@color/purple_700"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -54,6 +67,7 @@
         android:layout_height="wrap_content"
         android:text="@string/_7"
         android:textAlignment="center"
+        android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -67,6 +81,7 @@
         android:layout_width="183dp"
         android:layout_height="373dp"
         android:layout_marginBottom="28dp"
+        android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,10 +95,12 @@
         android:layout_marginStart="2dp"
         android:layout_marginEnd="76dp"
         android:layout_marginBottom="28dp"
+        android:textColor="@color/white"
         android:textSize="17sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.222"
         app:layout_constraintStart_toEndOf="@+id/sevendayReport" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
