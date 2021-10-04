@@ -6,10 +6,8 @@ import android.widget.TextView
 import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
-import com.android.volley.toolbox.JsonArrayRequest
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
-import org.w3c.dom.Text
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +39,7 @@ class MainActivity : AppCompatActivity() {
                 warnMessage.text = response.getString("warningMessage")
             },
             Response.ErrorListener {
-                error ->
+                    error ->
                 Toast.makeText(this, error.message, Toast.LENGTH_LONG).show()
             }
         )
@@ -89,16 +87,16 @@ class MainActivity : AppCompatActivity() {
                     //val of maximum temperature
                     val maxTemp = (response.getJSONArray("weatherForecast")
                         .getJSONObject(countArray)
-                        .getJSONArray("forecastMaxtemp")
-                        .getInt(0).toString())
+                        .getJSONObject("forecastMaxtemp")
+                        .getInt("value").toString())
 
                     //val of minimum temperature
                     val miniTemp = (response.getJSONArray("weatherForecast")
                         .getJSONObject(countArray)
-                        .getJSONArray("orecastMintemp")
-                        .getInt(0).toString())
+                        .getJSONObject("forecastMintemp")
+                        .getInt("value").toString())
 
-                    sevendayReport.append(miniTemp + "°C - " + maxTemp + "°C" + "\n\n")
+                    sevendayDegree.append(miniTemp + "°C - " + maxTemp + "°C" + "\n\n")
                 }
             },
             Response.ErrorListener {
@@ -107,5 +105,7 @@ class MainActivity : AppCompatActivity() {
             }
         )
         queue.add(sevendate)
+        queue.add(sevendegree)
+
     }
 }
