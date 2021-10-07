@@ -36,13 +36,15 @@ class MainActivity : AppCompatActivity() {
                     .getInt("value").toString()
 
                 //Request for weather warning message display if any
-                //HKO put warning message in to multiple index as array, a loop for array must be done for showing correct and all messages
+                //HKO put warning message in to multiple index as array, a loop for array must be
+                // done for showing correct and all messages if any, and avoid crashed if it is null
                 val warnMessContainer = response.getJSONArray("warningMessage")
                 var warnCollectend = ""
                     for (warnArray in 0 until warnMessContainer.length()) {
-                        warnCollectend = " " + warnCollectend + " " + warnMessContainer.getString(warnArray)
-                        //warnCollectend = warnCollect.joinToString(separator = "\n")
-
+                        if (warnMessContainer.getString(warnArray) != null) {
+                            warnCollectend =
+                                " " + warnCollectend + " " + warnMessContainer.getString(warnArray)
+                        }
                     }
                 warnMessage.text = warnCollectend
             },
