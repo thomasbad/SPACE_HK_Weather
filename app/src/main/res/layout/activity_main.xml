@@ -49,17 +49,29 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.075" />
 
-    <TextView
-        android:id="@+id/warnMessage"
-        android:layout_width="315dp"
-        android:layout_height="82dp"
-        android:textColor="@color/purple_700"
-        android:textSize="16sp"
+    <ScrollView
+        android:layout_width="312dp"
+        android:layout_height="85dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.187" />
+        app:layout_constraintVertical_bias="0.212">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/warnMessage"
+                android:layout_width="315dp"
+                android:layout_height="82dp"
+                android:textColor="#FFF6A5"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/textView4"
@@ -74,13 +86,13 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.319" />
+        app:layout_constraintVertical_bias="0.338" />
 
     <TextView
         android:id="@+id/sevendayReport"
         android:layout_width="190dp"
         android:layout_height="373dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/white"
         android:textSize="17sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -94,7 +106,7 @@
         android:layout_height="373dp"
         android:layout_marginStart="12dp"
         android:layout_marginEnd="76dp"
-        android:layout_marginBottom="28dp"
+        android:layout_marginBottom="20dp"
         android:textColor="@color/white"
         android:textSize="17sp"
         android:textStyle="bold"
