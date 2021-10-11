@@ -39,14 +39,17 @@ class MainActivity : AppCompatActivity() {
                 //HKO put warning message in to multiple index as array, a loop for array must be
                 // done for showing correct and all messages if any, and avoid crashed if it is null
                 val warnMessContainer = response.getJSONArray("warningMessage")
+                val warnMessCheck = response.getString("warningMessage")
                 var warnCollectend = ""
+                if (warnMessCheck != "") {
                     for (warnArray in 0 until warnMessContainer.length()) {
-                        if (warnMessContainer.getString(warnArray) != null) {
-                            warnCollectend =
+                        warnCollectend =
                                 " " + warnCollectend + " " + warnMessContainer.getString(warnArray)
                         }
-                    }
-                warnMessage.text = warnCollectend
+                    warnMessage.text = warnCollectend
+                    }else {
+                    warnMessage.text = response.getString("warningMessage")
+                }
             },
             Response.ErrorListener {
                     error ->
